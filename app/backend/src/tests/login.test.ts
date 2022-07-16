@@ -89,7 +89,7 @@ describe('[POST] Login', () => {
 
       expect(res.status).to.be.equal(400);
   });
-  it('An warning message is returned when a field is missing', async () => {
+  it('A warning message is returned when a field is missing', async () => {
     const res = await chai
       .request(app).post('/login')
       .send({
