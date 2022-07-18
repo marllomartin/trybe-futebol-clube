@@ -14,21 +14,22 @@ class User extends Model {
 User.init({
   // ... Campos
   id!: {
+    allowNull: false,
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
   username: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   },
   role: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   },
   email: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   },
   password: {
     allowNull: false,
