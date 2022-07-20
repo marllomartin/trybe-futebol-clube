@@ -13,7 +13,7 @@ class User extends Model {
 
 User.init({
   // ... Campos
-  id!: {
+  id: {
     allowNull: false,
     type: DataTypes.INTEGER,
     primaryKey: true,
