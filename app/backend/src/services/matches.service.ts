@@ -28,6 +28,16 @@ class MatchesService {
 
     return matches;
   }
+
+  static async create(match: object): Promise<object> {
+    const newMatch = await MatchModel.create({ ...match, inProgress: 1 });
+
+    return newMatch;
+  }
+
+  static async finish(id: number): Promise<void> {
+    await MatchModel.update({ inProgress: 0 }, { where: { id } });
+  }
 }
 
 export default MatchesService;
