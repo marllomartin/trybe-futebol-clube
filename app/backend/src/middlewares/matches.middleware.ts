@@ -2,7 +2,6 @@ import { verify } from 'jsonwebtoken';
 import { NextFunction, Request, Response } from 'express';
 import 'dotenv/config';
 import MatchModel from '../database/models/match.model';
-import getErrorMessage from '../utils/getErrorMessage';
 
 const { JWT_SECRET } = process.env;
 
@@ -44,7 +43,7 @@ class MatchValidation {
       if (!verifyToken) throw new Error('Token must be a valid token');
       next();
     } catch (Error) {
-      return res.status(401).send({ message: getErrorMessage(Error) });
+      return res.status(401).send({ message: 'Token must be a valid token' });
     }
   }
 }
