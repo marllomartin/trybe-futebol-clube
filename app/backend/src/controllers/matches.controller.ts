@@ -22,6 +22,26 @@ class MatchesController {
       return res.status(404).send({ message: getErrorMessage(Error) });
     }
   };
+
+  static create = async (req: Request, res: Response) => {
+    try {
+      const match = req.body;
+      const result = await MatchesService.create(match);
+      res.status(201).json(result);
+    } catch (Error) {
+      return res.status(404).send({ message: getErrorMessage(Error) });
+    }
+  };
+
+  static finish = async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      await MatchesService.finish(Number(id));
+      res.status(200).send({ message: 'Finished' });
+    } catch (Error) {
+      return res.status(404).send({ message: getErrorMessage(Error) });
+    }
+  };
 }
 
 export default MatchesController;
