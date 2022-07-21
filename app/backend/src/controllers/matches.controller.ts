@@ -36,8 +36,19 @@ class MatchesController {
   static finish = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
-      await MatchesService.finish(Number(id));
+      await MatchesService.finish(id);
       res.status(200).send({ message: 'Finished' });
+    } catch (Error) {
+      return res.status(404).send({ message: getErrorMessage(Error) });
+    }
+  };
+
+  static editInProgress = async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const goals = req.body;
+      await MatchesService.editInProgress(id, goals);
+      res.status(200).send({ message: 'Match updated' });
     } catch (Error) {
       return res.status(404).send({ message: getErrorMessage(Error) });
     }
