@@ -1,5 +1,6 @@
 import TeamModel from '../database/models/team.model';
 import MatchModel from '../database/models/match.model';
+import Goals from '../interfaces/match.interface';
 
 class MatchesService {
   static async getAll(): Promise<object> {
@@ -35,8 +36,14 @@ class MatchesService {
     return newMatch;
   }
 
-  static async finish(id: number): Promise<void> {
+  static async finish(id: string): Promise<void> {
     await MatchModel.update({ inProgress: 0 }, { where: { id } });
+  }
+
+  static async editInProgress(id: string, goals: Goals): Promise<void> {
+    const { homeTeamGoals, awayTeamGoals } = goals;
+
+    await MatchModel.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
   }
 }
 
