@@ -1,6 +1,14 @@
-interface Goals {
+type TeamType = { teamName: string };
+
+interface Match {
+  id: number,
+  homeTeam: number,
   homeTeamGoals: number,
-  awayTeamGoals: number
+  awayTeam: number,
+  awayTeamGoals: number;
+  inProgress: number;
+  teamHome?: TeamType;
+  teamAway?: TeamType
 }
 
-export default Goals;
+export default Match;
