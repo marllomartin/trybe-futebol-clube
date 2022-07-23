@@ -1,6 +1,6 @@
 import TeamModel from '../database/models/team.model';
 import MatchModel from '../database/models/match.model';
-import Goals from '../interfaces/match.interface';
+import Goals from '../interfaces/goals.interface';
 
 class MatchesService {
   static async getAll(): Promise<object> {
