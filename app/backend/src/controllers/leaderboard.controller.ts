@@ -3,9 +3,18 @@ import getErrorMessage from '../utils/getErrorMessage';
 import LeaderboardService from '../services/leaderboard.service';
 
 class LeaderboardController {
-  static getLeaderBoardHome = async (req: Request, res: Response) => {
+  static getLeaderboardHome = async (req: Request, res: Response) => {
     try {
       const result = await LeaderboardService.getLeaderboardHome();
+      res.status(200).json(result);
+    } catch (Error) {
+      return res.status(404).send({ message: getErrorMessage(Error) });
+    }
+  };
+
+  static getLeaderboardAway = async (req: Request, res: Response) => {
+    try {
+      const result = await LeaderboardService.getLeaderboardAway();
       res.status(200).json(result);
     } catch (Error) {
       return res.status(404).send({ message: getErrorMessage(Error) });
