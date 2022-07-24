@@ -12,14 +12,15 @@ const {
   calcGoalsFavor,
   calcGoalsOwn,
   calcGoalsBalance,
-  calcEfficiency } = leaderboardFunctions;
+  calcEfficiency,
+  sortLeaderboard } = leaderboardFunctions;
 
 class LeaderboardService {
   static async getLeaderboardHome(): Promise<Leaderboard[]> {
     const allMatches = await MatchModel.findAll({ where: { inProgress: 0 } });
     const allTeams = await TeamModel.findAll();
 
-    const result = allTeams.map((team) => {
+    const leaderboards = allTeams.map((team) => {
       const matches = allMatches.filter((match) => match.homeTeam === team.id);
 
       return {
@@ -36,7 +37,7 @@ class LeaderboardService {
       };
     });
 
-    return result;
+    return sortLeaderboard(leaderboards);
   }
 }
 
