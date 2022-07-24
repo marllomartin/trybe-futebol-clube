@@ -2,10 +2,17 @@ import Leaderboard from '../interfaces/leaderboard.interface';
 import Match from '../interfaces/match.interface';
 
 class leaderboardFunctions {
-  static calcTotalPoints(matches: Match[]): number {
+  static calcTotalPoints(matches: Match[], teamSide: string): number {
+    if (teamSide === 'h') {
+      return matches.reduce((acc, curr) => {
+        if (curr.homeTeamGoals > curr.awayTeamGoals) return acc + 3;
+        if (curr.homeTeamGoals === curr.awayTeamGoals) return acc + 1;
+        return acc;
+      }, 0);
+    }
     return matches.reduce((acc, curr) => {
-      if (curr.homeTeamGoals > curr.awayTeamGoals) return acc + 3;
-      if (curr.homeTeamGoals === curr.awayTeamGoals) return acc + 1;
+      if (curr.awayTeamGoals > curr.homeTeamGoals) return acc + 3;
+      if (curr.awayTeamGoals === curr.homeTeamGoals) return acc + 1;
       return acc;
     }, 0);
   }
@@ -14,24 +21,36 @@ class leaderboardFunctions {
     return matches.length;
   }
 
-  static calcTotalVictories(matches: Match[]): number {
-    return matches.filter((match) => match.homeTeamGoals > match.awayTeamGoals).length;
+  static calcTotalVictories(matches: Match[], teamSide: string): number {
+    if (teamSide === 'h') {
+      return matches.filter((match) => match.homeTeamGoals > match.awayTeamGoals).length;
+    }
+    return matches.filter((match) => match.awayTeamGoals > match.homeTeamGoals).length;
   }
 
   static calcTotalDraws(matches: Match[]): number {
     return matches.filter((match) => match.homeTeamGoals === match.awayTeamGoals).length;
   }
 
-  static calcTotalLosses(matches: Match[]): number {
-    return matches.filter((match) => match.homeTeamGoals < match.awayTeamGoals).length;
+  static calcTotalLosses(matches: Match[], teamSide: string): number {
+    if (teamSide === 'h') {
+      return matches.filter((match) => match.homeTeamGoals < match.awayTeamGoals).length;
+    }
+    return matches.filter((match) => match.awayTeamGoals < match.homeTeamGoals).length;
   }
 
-  static calcGoalsFavor(matches: Match[]): number {
-    return matches.reduce((acc, curr) => acc + curr.homeTeamGoals, 0);
-  }
-
-  static calcGoalsOwn(matches: Match[]): number {
+  static calcGoalsFavor(matches: Match[], teamSide: string): number {
+    if (teamSide === 'h') {
+      return matches.reduce((acc, curr) => acc + curr.homeTeamGoals, 0);
+    }
     return matches.reduce((acc, curr) => acc + curr.awayTeamGoals, 0);
+  }
+
+  static calcGoalsOwn(matches: Match[], teamSide: string): number {
+    if (teamSide === 'h') {
+      return matches.reduce((acc, curr) => acc + curr.awayTeamGoals, 0);
+    }
+    return matches.reduce((acc, curr) => acc + curr.homeTeamGoals, 0);
   }
 
   static calcGoalsBalance(goalsFavor: number, goalsOwn: number): number {
