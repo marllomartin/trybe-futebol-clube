@@ -57,7 +57,7 @@ class LeaderboardService {
         totalLosses: calcTotalLosses(matches, 'a'),
         goalsFavor: calcGoalsFavor(matches, 'a'),
         goalsOwn: calcGoalsOwn(matches, 'a'),
-        goalsBalance: calcGoalsBalance(calcGoalsFavor(matches, 'a'), calcGoalsOwn(matches, 'awayTeam')),
+        goalsBalance: calcGoalsBalance(calcGoalsFavor(matches, 'a'), calcGoalsOwn(matches, 'a')),
         efficiency: calcEfficiency(calcTotalPoints(matches, 'a'), calcTotalGames(matches)),
       };
     });
