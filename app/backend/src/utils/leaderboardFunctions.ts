@@ -1,3 +1,4 @@
+import Leaderboard from '../interfaces/leaderboard.interface';
 import Match from '../interfaces/match.interface';
 
 class leaderboardFunctions {
@@ -40,6 +41,15 @@ class leaderboardFunctions {
   static calcEfficiency(totalPoints: number, totalGames: number): number {
     return Number(((totalPoints / (totalGames * 3)) * 100).toFixed(2));
   }
-}
 
+  static sortLeaderboard(leaderboards: Leaderboard[]): Leaderboard[] {
+    leaderboards.sort((a, b) => a.goalsOwn - b.goalsOwn);
+    leaderboards.sort((a, b) => b.goalsFavor - a.goalsFavor);
+    leaderboards.sort((a, b) => b.goalsBalance - a.goalsBalance);
+    leaderboards.sort((a, b) => b.totalVictories - a.totalVictories);
+    leaderboards.sort((a, b) => b.totalPoints - a.totalPoints);
+
+    return leaderboards;
+  }
+}
 export default leaderboardFunctions;
