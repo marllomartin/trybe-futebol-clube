@@ -65,7 +65,7 @@ describe('[GET] Leaderboard General', () => {
 
     expect(res.status).to.be.equal(200);
   });
-  it('Leaderboard Away is returned when get leaderboard general request is successful', async () => {
+  it('Leaderboard General is returned when get leaderboard general request is successful', async () => {
     const res = await chai.request(app).get('/leaderboard');
 
     expect(res.body).to.be.an('Array');
