@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-/* eslint-disable max-len */
 import TeamModel from '../database/models/team.model';
 import MatchModel from '../database/models/match.model';
 import leaderboardFunctions from '../utils/leaderboardFunctions';
@@ -16,6 +14,7 @@ const {
   calcGoalsOwn,
   calcGoalsBalance,
   calcEfficiency,
+  leaderboardObject,
   sortLeaderboard } = leaderboardFunctions;
 
 class LeaderboardService {
@@ -74,21 +73,14 @@ class LeaderboardService {
     const allLeaderboards = leaderboardHome.concat(leaderboardAway);
 
     const leaderboardTotal = allTeams.map((team) => {
-      const leaderboards = allLeaderboards.filter((leaderboard) => leaderboard.name === team.teamName);
-      const sumLeaderboards = leaderboards.reduce((acc, obj) => sumObjectKeys(acc, obj));
+      const leaderboards = allLeaderboards
+        .filter((leaderboard) => leaderboard.name === team.teamName);
+      const sumLeaderboards = leaderboards
+        .reduce((acc, obj) => sumObjectKeys(acc, obj));
 
-      return {
-        name: team.teamName,
-        totalPoints: sumLeaderboards.totalPoints,
-        totalGames: sumLeaderboards.totalGames,
-        totalVictories: sumLeaderboards.totalVictories,
-        totalDraws: sumLeaderboards.totalDraws,
-        totalLosses: sumLeaderboards.totalLosses,
-        goalsFavor: sumLeaderboards.goalsFavor,
-        goalsOwn: sumLeaderboards.goalsOwn,
-        goalsBalance: sumLeaderboards.goalsBalance,
-        efficiency: calcEfficiency(sumLeaderboards.totalPoints, sumLeaderboards.totalGames),
-      };
+      const efficiency = calcEfficiency(sumLeaderboards.totalPoints, sumLeaderboards.totalGames);
+
+      return leaderboardObject(team.teamName, efficiency, sumLeaderboards);
     });
 
     return sortLeaderboard(leaderboardTotal);
