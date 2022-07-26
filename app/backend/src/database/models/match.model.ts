@@ -3,7 +3,6 @@ import db from '.';
 import Team from './team.model';
 
 class Match extends Model {
-  // public <campo>!: <tipo>;
   public id!: number;
   public homeTeam!: number;
   public homeTeamGoals!: number;
@@ -13,7 +12,6 @@ class Match extends Model {
 }
 
 Match.init({
-  // ... Campos
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -48,7 +46,6 @@ Match.init({
     type: DataTypes.INTEGER,
   },
 }, {
-  // ... Outras configs
   underscored: true,
   sequelize: db,
   modelName: 'Match',

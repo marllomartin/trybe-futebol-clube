@@ -2,13 +2,11 @@ import { DataTypes, Model } from 'sequelize';
 import db from '.';
 
 class Team extends Model {
-  // public <campo>!: <tipo>;
   public id!: number;
   public teamName!: string;
 }
 
 Team.init({
-  // ... Campos
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -19,7 +17,6 @@ Team.init({
     type: DataTypes.STRING,
   },
 }, {
-  // ... Outras configs
   underscored: true,
   sequelize: db,
   modelName: 'Team',
