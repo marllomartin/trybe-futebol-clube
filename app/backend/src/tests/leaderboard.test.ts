@@ -58,3 +58,28 @@ describe('[GET] Leaderboard Away', () => {
     );
   });
 });
+
+describe('[GET] Leaderboard General', () => {
+  it('Status 200 is returned get leaderboard general request is successful', async () => {
+    const res = await chai.request(app).get('/leaderboard');
+
+    expect(res.status).to.be.equal(200);
+  });
+  it('Leaderboard Away is returned when get leaderboard general request is successful', async () => {
+    const res = await chai.request(app).get('/leaderboard');
+
+    expect(res.body).to.be.an('Array');
+    expect(res.body[0]).to.have.keys(
+      'name',
+      'totalPoints',
+      'totalGames',
+      'totalVictories',
+      'totalDraws',
+      'totalLosses',
+      'goalsFavor',
+      'goalsOwn',
+      'goalsBalance',
+      'efficiency'
+    );
+  });
+});
