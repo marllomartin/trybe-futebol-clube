@@ -61,6 +61,21 @@ class leaderboardFunctions {
     return Number(((totalPoints / (totalGames * 3)) * 100).toFixed(2));
   }
 
+  static leaderboardObject(teamName: string, efficiency: number, leaderboard: Leaderboard) {
+    return {
+      name: teamName,
+      totalPoints: leaderboard.totalPoints,
+      totalGames: leaderboard.totalGames,
+      totalVictories: leaderboard.totalVictories,
+      totalDraws: leaderboard.totalDraws,
+      totalLosses: leaderboard.totalLosses,
+      goalsFavor: leaderboard.goalsBalance,
+      goalsOwn: leaderboard.goalsOwn,
+      goalsBalance: leaderboard.goalsBalance,
+      efficiency,
+    };
+  }
+
   static sortLeaderboard(leaderboards: Leaderboard[]): Leaderboard[] {
     leaderboards.sort((a, b) => a.goalsOwn - b.goalsOwn);
     leaderboards.sort((a, b) => b.goalsFavor - a.goalsFavor);
