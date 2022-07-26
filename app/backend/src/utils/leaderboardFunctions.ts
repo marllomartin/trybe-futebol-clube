@@ -69,7 +69,7 @@ class leaderboardFunctions {
       totalVictories: leaderboard.totalVictories,
       totalDraws: leaderboard.totalDraws,
       totalLosses: leaderboard.totalLosses,
-      goalsFavor: leaderboard.goalsBalance,
+      goalsFavor: leaderboard.goalsFavor,
       goalsOwn: leaderboard.goalsOwn,
       goalsBalance: leaderboard.goalsBalance,
       efficiency,
