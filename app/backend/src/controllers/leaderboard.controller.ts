@@ -20,6 +20,15 @@ class LeaderboardController {
       return res.status(404).send({ message: getErrorMessage(Error) });
     }
   };
+
+  static getLeaderboardAll = async (req: Request, res: Response) => {
+    try {
+      const result = await LeaderboardService.getLeaderboardAll();
+      res.status(200).json(result);
+    } catch (Error) {
+      return res.status(404).send({ message: getErrorMessage(Error) });
+    }
+  };
 }
 
 export default LeaderboardController;
