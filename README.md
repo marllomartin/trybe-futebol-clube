@@ -15,12 +15,17 @@ Nela, o usuário é capaz de visualizar tabelas com diversas classificações de
 
   * Planejamento de um CRUD com Node.js e TypeScript;
   
+  * Utilização do paradigma de Programação Orientada a Objetos 
+  
   * Desenvolvimento TDD (Test Driven Development)
 
   * Processos de autenticação de JWT.
+  
+  * Criação de contêiners com o Docker
 
 
 ## Tecnologias Utilizadas
+* [Docker](https://www.docker.com/)
 
 ### Back-End
 * [MySQL](https://www.mysql.com/)
