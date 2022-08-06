@@ -7,9 +7,24 @@
 ## Sobre
 Aplicação full stack de um site informativo sobre partidas e classificações de futebol desenvolvido enquanto eu estudava na [Trybe](https://www.betrybe.com/).
 
+![Login](https://github.com/marllomartin/trybe-futebol-clube/blob/main/app/frontend/public/LOGIN.gif)
 
-Nela, o usuário é capaz de visualizar tabelas com diversas classificações de times de futebol, assim como adicionar e finalizar novas partidas que serão automaticamente integradas nas tabelas.
+## Funcionalidades
+Neste projeto, o usuário é capaz de:
 
+  * Fazer o login na aplicação;
+  
+    * É feita a autenticação local do usuário ao logar na aplicação
+
+  * Visualizar uma tabela com todas partidas;
+
+  * Caso o usuário seja um administrador, adicionar novas partidas e atualizar e finalizar partidas em andamento;
+  
+  * Visualizar placar geral, placar de visitantes e placar de mandantes;
+
+    * O placar será atualizado automaticamente conforme novas partidas são adicionadas pelo administrador;
+
+![Leaderboard](https://github.com/marllomartin/trybe-futebol-clube/blob/main/app/frontend/public/TABLE.gif)
 
 ## Aprendizados
 
