@@ -1,7 +1,7 @@
 # Project TFC
 
 <div align="center">
-<img src=https://i.imgur.com/FvNd3Yx.png" width="200px">
+<img src=https://i.imgur.com/Ki1zXlI.png" width="200px">
 </div>
 
 ## Sobre
