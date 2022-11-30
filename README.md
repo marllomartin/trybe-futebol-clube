@@ -4,44 +4,45 @@
 <img src=https://i.imgur.com/Ki1zXlI.png" width="200px">
 </div>
 
-## Sobre
+## About
 Aplicação full stack de um site informativo sobre partidas e classificações de futebol desenvolvido enquanto eu estudava na [Trybe](https://www.betrybe.com/).
+
+Full stack soccer matches and leaderboards web application developed in React and Node during my time studying at [Trybe](https://www.betrybe.com/).
 
 ![Login](https://github.com/marllomartin/trybe-futebol-clube/blob/main/app/frontend/public/LOGIN.gif)
 
-## Funcionalidades
-Neste projeto, o usuário é capaz de:
+## Features
 
-  * Fazer o login na aplicação;
+  * Log in;
   
-    * É feita a autenticação local do usuário ao logar na aplicação
+    * The user is authenticated when logging in;
 
-  * Visualizar uma tabela com todas partidas;
-
-  * Caso o usuário seja um administrador, adicionar novas partidas e atualizar e finalizar partidas em andamento;
+  * Visualize a table with all the soccer matches and their scoreboards;
   
-  * Visualizar placar geral, placar de visitantes e placar de mandantes;
-
-    * O placar será atualizado automaticamente conforme novas partidas são adicionadas pelo administrador;
+  * If the user has the admin role, they can add new matches, update each team scoreboard and finish ongoing matches;
+  
+  * Visualize the general leaderboard, the visitor teams leaderboard and the home teams leaderboard;
+    
+    * The leaderboard is automatically updated as new matches are added by the admin;
 
 ![Leaderboard](https://github.com/marllomartin/trybe-futebol-clube/blob/main/app/frontend/public/TABLE.gif)
 
-## Aprendizados
+## Learnings
 
-  * Planejamento de um CRUD com Node.js e TypeScript;
+  * Planning a CRUD using Node.js and TypeScript;
   
-  * Utilização do paradigma de Programação Orientada a Objetos ;
+  * Use of OOP(Object Oriented Programming) paradigm;
   
-  * Desenvolvimento TDD (Test Driven Development);
+  * TDD(Test Driven Development);
 
-  * Processos de autenticação de JWT;
+  * JWT Authentication;
   
-  * Organização de Dockerfiles;
+  * Setting Dockerfiles;
   
-  * Orquestração de containers com o Docker Compose;
+  * Container orchestration with Docker Compose;
 
 
-## Tecnologias Utilizadas
+## Technologies Used
 * [Docker](https://www.docker.com/)
 
 ### Back-End
@@ -57,9 +58,9 @@ Neste projeto, o usuário é capaz de:
 * [React](https://reactjs.org/)
   * [Axios](https://axios-http.com/ptbr/docs/intro)
 
-## Rodando o projeto com o Docker (recomendado)
+## Running project with Docker (recommended)
 
-### Clonando o projeto:
+### Cloning project:
 ```
 git clone git@github.com:marllomartin/trybe-futebol-clube.git
 
@@ -67,57 +68,64 @@ cd trybe-futebol-clube
 
 cd app
 ```
-### Inicializando o Docker
+### Building Docker
 ```
 docker-compose up --build
 ```
 
-## Rodando o projeto localmente
+## Running project locally
 
-### Atenção!
-Esse projeto utiliza variáveis de ambiente. Renomeie o arquivo `.env.example` para `.env` e altere os valores de acordo com suas próprias configurações.
-
-### Clonando o projeto:
+### Cloning project:
 ```
-git clone git@github.com:marllomartin/trybe-futebol-clube.git
+git clone git@github.com:marllomartin/trybe-futebol-clube
 
 cd trybe-futebol-clube
+```
 
+
+### Running Back-End:
+#### Attention!
+The Back-End of this project has environment variables. Rename the `.env.example` file to `.env` and set its values accordingly to your own settings. 
+
+#### Changing to Back-End directory:
+```
 cd app
-```
-### Instalando as dependências do Front-End:
-```
-cd frontend
-
-npm install
-```
-### Instalando as dependências do Back-End:
-```
-cd ..
 
 cd backend
-
+```
+#### Installing dependencies:
+```
 npm install
 ```
-### Inicializando o Banco de Dados com Sequelize:
+#### Creating database with Sequelize:
 ```
 npx sequelize db:create
 ```
-### Executando as Migrations do Banco de Dados com Sequelize:
+#### Running Sequelize migrations:
 ```
 npx sequelize db:migrate
 ```
-### Populando o Banco de Dados com Sequelize:
+#### Seeding database with Sequelize:
 ```
 npx sequelize db:seed:all
 ```
-### Inicializando o Back-End do projeto:
-Dentro da pasta backend:
+#### Running Back-End:
 ```
 npm run dev
 ```
-### Inicializando o Front-End do projeto:
-Dentro da pasta frontend:
+
+### Running Front-End:
+#### Changing to Front-End directory:
+```
+cd ..
+
+cd frontend
+```
+#### Installing dependencies:
+```
+npm install
+```
+#### Running Front-End:
 ```
 npm start
 ```
