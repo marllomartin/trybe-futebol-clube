@@ -9,6 +9,21 @@ Full stack soccer matches and leaderboards web application developed in React an
 
 ![Login](https://github.com/marllomartin/trybe-futebol-clube/blob/main/app/frontend/public/LOGIN.gif)
 
+In order to log in, you need two use one of the following credentials:
+
+
+<details>
+<summary>User</summary>
+email: user@user.com
+password: secret_user
+</details>
+
+<details>
+<summary>Admin</summary>
+email: admin@admin.com
+password: secret_admin
+</details>
+
 ## Features
 
   * Log in;
