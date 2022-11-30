@@ -14,14 +14,32 @@ In order to log in, you need two use one of the following credentials:
 
 <details>
 <summary>User</summary>
-email: user@user.com
-password: secret_user
+<br>
+email: 
+
+```
+user@user.com
+```
+
+password: 
+```
+secret_user
+```
 </details>
 
 <details>
+<br>
 <summary>Admin</summary>
-email: admin@admin.com
-password: secret_admin
+email:
+
+```
+admin@admin.com
+```
+
+password: 
+```
+secret_admin
+```
 </details>
 
 ## Features
