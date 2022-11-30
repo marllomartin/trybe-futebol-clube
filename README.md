@@ -5,8 +5,6 @@
 </div>
 
 ## About
-Aplicação full stack de um site informativo sobre partidas e classificações de futebol desenvolvido enquanto eu estudava na [Trybe](https://www.betrybe.com/).
-
 Full stack soccer matches and leaderboards web application developed in React and Node during my time studying at [Trybe](https://www.betrybe.com/).
 
 ![Login](https://github.com/marllomartin/trybe-futebol-clube/blob/main/app/frontend/public/LOGIN.gif)
